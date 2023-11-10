@@ -1,0 +1,3 @@
+[submodule "Fountainhead/vendor/spdlog"]
+	path = Fountainhead/vendor/spdlog
+	url = https://github.com/gabime/spdlog
