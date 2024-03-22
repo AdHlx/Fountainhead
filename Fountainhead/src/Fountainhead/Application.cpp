@@ -1,3 +1,4 @@
+#include "fhpch.h"
 #include "Application.h"
 
 #include "Fountainhead/Events/ApplicationEvent.h"

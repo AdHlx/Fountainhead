@@ -2,9 +2,6 @@
 
 #include "Fountainhead\Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Fountainhead {
 
 	//引擎中的事件当前处于阻塞状态

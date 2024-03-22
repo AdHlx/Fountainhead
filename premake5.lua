@@ -18,6 +18,9 @@ project "Fountainhead"
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "fhpch.h"
+	pchsource "Fountainhead/src/fhpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

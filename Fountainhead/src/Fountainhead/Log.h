@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-
 #include "Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"//用于spdlog的输出流运算符，以便我们可以日志自定义类型

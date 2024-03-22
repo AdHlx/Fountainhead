@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Fountainhead {
 	class FOUNTAINHEAD_API KeyEvent : public Event//创建基类，包含按键码用来区分不同按键事件
 	{

@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Fountainhead {
 	class FOUNTAINHEAD_API MouseMovedEvent : public Event//鼠标移动事件
 	{

@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Fountainhead {
 	class FOUNTAINHEAD_API WindowResizeEvent : public Event//窗口调整大小事件
 	{
