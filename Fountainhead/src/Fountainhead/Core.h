@@ -9,3 +9,5 @@
 #else
 	#error Fountainhead only supports Windows!
 #endif // FH_PLATFORM_WINDOWS
+
+#define BIT(x) (1 << x)
