@@ -10,6 +10,12 @@ workspace "Fountainhead"
 
 outputdir = "%{cfg.buidcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Fountainhead/vendor/GLFW/include"
+
+include "Fountainhead/vendor/GLFW"
+
 project "Fountainhead"
 	location "Fountainhead"
 	kind "SharedLib"
@@ -30,7 +36,14 @@ project "Fountainhead"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

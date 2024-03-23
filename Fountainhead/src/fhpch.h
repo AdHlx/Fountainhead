@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Fountainhead/Log.h"
+
 #ifdef FH_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif // FH_PLATFORM_WINDOWS
