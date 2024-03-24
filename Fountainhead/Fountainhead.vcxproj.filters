@@ -37,6 +37,12 @@
     <ClInclude Include="src\Fountainhead\Events\MouseEvent.h">
       <Filter>Fountainhead\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Fountainhead\Layer.h">
+      <Filter>Fountainhead</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\LayerStack.h">
+      <Filter>Fountainhead</Filter>
+    </ClInclude>
     <ClInclude Include="src\Fountainhead\Log.h">
       <Filter>Fountainhead</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Fountainhead\Application.cpp">
+      <Filter>Fountainhead</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Layer.cpp">
+      <Filter>Fountainhead</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\LayerStack.cpp">
       <Filter>Fountainhead</Filter>
     </ClCompile>
     <ClCompile Include="src\Fountainhead\Log.cpp">

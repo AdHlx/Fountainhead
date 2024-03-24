@@ -47,6 +47,8 @@ namespace Fountainhead {
 	{
 		friend class EventDispatcher;
 	public:
+		bool Handled = false;//是否已被处理的布尔值，因为我们希望能够在对应的层处理对应的实践，不希望将事件传播到更深的层
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -56,8 +58,6 @@ namespace Fountainhead {
 		{
 			return GetCategoryFlags() & category;
 		}//查询这个事件是否属于给定的类型，然后我们可以使用它来快速过滤掉某些事件
-	protected:
-		bool m_Handled = false;//是否已被处理的布尔值，因为我们希望能够在对应的层处理对应的实践，不希望将事件传播到更深的层
 	};
 
 	class EventDispatcher//事件调度器，是一种能让我们非常轻松的根据事件类型调度事件的方式
@@ -77,7 +77,7 @@ namespace Fountainhead {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())//由于这是一个静态函数，我们使用T::来获取静态类型
 			{//如果尝试调度的事件，与这个函数匹配，它就会用这个事件调用这个函数
-				m_Event.m_Handled = func(*(T*)&m_Event);//如果为真，那么调度到合适的函数
+				m_Event.Handled = func(*(T*)&m_Event);//如果为真，那么调度到合适的函数
 				return true;
 			}
 			return false;

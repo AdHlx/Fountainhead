@@ -64,14 +64,17 @@ project "Fountainhead"
 
 	filter "configurations:Debug"
 		defines "FH_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "FH_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -112,12 +115,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "FH_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "FH_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DIST"
+		buildoptions "/MD"
 		optimize "On"
