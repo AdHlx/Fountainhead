@@ -26,6 +26,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Fountainhead::ImGuiLayer());//推入ImGuiLayer作为覆层
 	}
 
 	~Sandbox()

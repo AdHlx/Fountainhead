@@ -7,8 +7,13 @@ namespace Fountainhead {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		FH_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());//我们使用unique_ptr所以在应用程序终止时，我们不必自己删除窗口
 		//Window::Create()会调用构造函数，然后会调用Init()
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
@@ -22,11 +27,13 @@ namespace Fountainhead {
 	void Application::PushLayer(Layer* layer)//一个适配器，本质上就是把层或者覆层推入层栈
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
