@@ -5,6 +5,8 @@
 #include "Fountainhead/Events/MouseEvent.h"
 #include "Fountainhead/Events/KeyEvent.h"
 
+#include <glad/glad.h>
+
 namespace Fountainhead {
 
 	static bool s_GLFWInitialized = false;
@@ -49,6 +51,8 @@ namespace Fountainhead {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);//创建glfw窗口
 		glfwMakeContextCurrent(m_Window);//创建当前上下文
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		FH_CORE_ASSERT(status, "Failed to initialize Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);//设置一个窗口用户指针，用于事件回调
 		//这个函数，窗口结构体会以void*保存传入的用户数据指针，这就让我们可以让我们使用这个函数，从窗口中获得用户数据指针
 		SetVSync(true);//垂直同步设置
