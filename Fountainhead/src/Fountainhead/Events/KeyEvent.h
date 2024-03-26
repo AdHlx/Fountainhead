@@ -51,4 +51,20 @@ namespace Fountainhead {
 
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
+
+	class FOUNTAINHEAD_API KeyTypedEvent : public KeyEvent//按键按下事件
+	{
+	public:
+		KeyTypedEvent(int keycode)
+			: KeyEvent(keycode){}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTypedEvent:" << m_KeyCode;
+			return ss.str();
+		}//重写ToString函数，打印被按下的按键码以及重复的次数
+
+		EVENT_CLASS_TYPE(KeyTyped)
+	};
 }
