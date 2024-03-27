@@ -41,6 +41,8 @@ namespace Fountainhead {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 
+		virtual void* GetNativeWindow() const = 0;//使用void*可以不必须是GLFWwindow，如果我们使用其他的窗口库，也可以
+
 		static Window* Create(const WindowProps& props = WindowProps());
 	};
 }
