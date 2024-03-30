@@ -4,3 +4,9 @@
 [submodule "Fountainhead/vendor/GLFW"]
 	path = Fountainhead/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "Fountainhead/vendor/imgui"]
+	path = Fountainhead/vendor/imgui
+	url = https://github.com/TheCherno/imgui
+[submodule "Fountainhead/vendor/glm"]
+	path = Fountainhead/vendor/glm
+	url = https://github.com/g-truc/glm

@@ -6,7 +6,7 @@ namespace Fountainhead {
 	//当层栈销毁时，层都被释放
 	LayerStack::LayerStack()
 	{
-		m_LayerInsert = m_Layers.begin();
+		//m_LayerInsert = m_Layers.begin();
 	}
 
 	LayerStack::~LayerStack()
@@ -17,7 +17,8 @@ namespace Fountainhead {
 
 	void LayerStack::PushLayer(Layer* layer)
 	{
-		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);//层被推入列表前半部分
+		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);//层被推入列表前半部分
+		m_LayerInsertIndex++;
 	}
 
 	void LayerStack::PushOverlay(Layer* overlay)
@@ -31,7 +32,7 @@ namespace Fountainhead {
 		if (it != m_Layers.end())
 		{
 			m_Layers.erase(it);
-			m_LayerInsert--;
+			m_LayerInsertIndex--;
 		}
 	}
 

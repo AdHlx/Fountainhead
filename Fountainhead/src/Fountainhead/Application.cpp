@@ -20,6 +20,9 @@ namespace Fountainhead {
 		//Window::Create()会调用构造函数，然后会调用Init()
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 		//用std::bind绑定一个成员函数，用宏简化
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()

@@ -6,6 +6,8 @@
 #include "Fountainhead/LayerStack.h"
 #include "Fountainhead/Events/ApplicationEvent.h"
 
+#include "Fountainhead/ImGui/ImGuiLayer.h"
+
 namespace Fountainhead {
 	class FOUNTAINHEAD_API Application
 	{
@@ -27,6 +29,7 @@ namespace Fountainhead {
 		bool OnWindowClosed(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;//保存窗口类的一个实例
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;//层栈创建在栈内存是，继承App类的生命周期
 	private:
