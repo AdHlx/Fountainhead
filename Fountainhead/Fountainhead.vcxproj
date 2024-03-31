@@ -160,6 +160,7 @@
     <ClInclude Include="src\Fountainhead\Events\Event.h" />
     <ClInclude Include="src\Fountainhead\Events\KeyEvent.h" />
     <ClInclude Include="src\Fountainhead\Events\MouseEvent.h" />
+    <ClInclude Include="src\Fountainhead\ImGui\ImGuiBuild.cpp" />
     <ClInclude Include="src\Fountainhead\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Fountainhead\Input.h" />
     <ClInclude Include="src\Fountainhead\KeyCodes.h" />
@@ -168,7 +169,6 @@
     <ClInclude Include="src\Fountainhead\Log.h" />
     <ClInclude Include="src\Fountainhead\MouseButtonCodes.h" />
     <ClInclude Include="src\Fountainhead\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\fhpch.h" />
@@ -541,7 +541,6 @@
     <ClCompile Include="src\Fountainhead\Layer.cpp" />
     <ClCompile Include="src\Fountainhead\LayerStack.cpp" />
     <ClCompile Include="src\Fountainhead\Log.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\fhpch.cpp">
