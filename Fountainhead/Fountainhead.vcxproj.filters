@@ -1185,11 +1185,13 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Fountainhead\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Fountainhead\Application.cpp">
       <Filter>src\Fountainhead</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Fountainhead\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Fountainhead\ImGui\ImGuiLayer.cpp">
       <Filter>src\Fountainhead\ImGui</Filter>
