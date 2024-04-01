@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Fountainhead/Window.h"
+#include "Fountainhead/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -28,6 +29,7 @@ namespace Fountainhead {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		//窗口回调需要用到这个窗口数据结构
 		struct WindowData//存储了glfw可能通过事件回调request的数据
