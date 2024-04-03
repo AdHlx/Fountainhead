@@ -9,6 +9,7 @@
 #include "Fountainhead/ImGui/ImGuiLayer.h"
 
 #include "Fountainhead/Renderer/Shader.h"
+#include "Fountainhead/Renderer/Buffer.h"
 
 namespace Fountainhead {
 	class FOUNTAINHEAD_API Application
@@ -35,8 +36,10 @@ namespace Fountainhead {
 		bool m_Running = true;
 		LayerStack m_LayerStack;//层栈创建在栈内存是，继承App类的生命周期
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		unsigned int m_VertexArray;
 		std::unique_ptr<Shader> m_Shader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 	};
