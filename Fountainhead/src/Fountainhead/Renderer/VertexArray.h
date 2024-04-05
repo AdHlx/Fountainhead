@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "Fountainhead/Renderer/Buffer.h"
+#include "Buffer.h"
 
 namespace Fountainhead {
 

@@ -1193,6 +1193,9 @@
     <ClInclude Include="src\Fountainhead\Renderer\Renderer.h" />
     <ClInclude Include="src\Fountainhead\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Fountainhead\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Fountainhead\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Fountainhead\Application.cpp">
@@ -1229,5 +1232,8 @@
     <ClCompile Include="src\Fountainhead\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Fountainhead\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Fountainhead\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
 </Project>
