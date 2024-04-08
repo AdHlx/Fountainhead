@@ -1197,6 +1197,7 @@
     <ClInclude Include="src\Fountainhead\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Fountainhead\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Fountainhead\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Fountainhead\Application.cpp">

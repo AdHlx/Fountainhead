@@ -6,16 +6,12 @@
 #include "Fountainhead/LayerStack.h"
 #include "Fountainhead/Events/ApplicationEvent.h"
 
+#include "Fountainhead/Core/Timestep.h"
+
 #include "Fountainhead/ImGui/ImGuiLayer.h"
 
-#include "Fountainhead/Renderer/Shader.h"
-#include "Fountainhead/Renderer/Buffer.h"
-#include "Fountainhead/Renderer/VertexArray.h"
-
-#include "Fountainhead/Renderer/OrthographicCamera.h"
-
 namespace Fountainhead {
-	class FOUNTAINHEAD_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -33,19 +29,12 @@ namespace Fountainhead {
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClosed(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;//保存窗口类的一个实例
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;//层栈创建在栈内存是，继承App类的生命周期
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;//渲染最后一帧所使用的时间
 	private:
 		static Application* s_Instance;
 	};

@@ -146,6 +146,7 @@
     <ClInclude Include="src\Fountainhead.h" />
     <ClInclude Include="src\Fountainhead\Application.h" />
     <ClInclude Include="src\Fountainhead\Core.h" />
+    <ClInclude Include="src\Fountainhead\Core\Timestep.h" />
     <ClInclude Include="src\Fountainhead\EntryPoint.h" />
     <ClInclude Include="src\Fountainhead\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Fountainhead\Events\Event.h" />
