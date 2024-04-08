@@ -160,6 +160,7 @@
     <ClInclude Include="src\Fountainhead\MouseButtonCodes.h" />
     <ClInclude Include="src\Fountainhead\Renderer\Buffer.h" />
     <ClInclude Include="src\Fountainhead\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Fountainhead\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Fountainhead\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Fountainhead\Renderer\Renderer.h" />
     <ClInclude Include="src\Fountainhead\Renderer\RendererAPI.h" />
@@ -544,6 +545,7 @@
     <ClCompile Include="src\Fountainhead\LayerStack.cpp" />
     <ClCompile Include="src\Fountainhead\Log.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Fountainhead\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\RendererAPI.cpp" />

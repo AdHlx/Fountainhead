@@ -5,6 +5,6 @@
 
 namespace Fountainhead {
 
-	RendererAPI* RenderCommand::s_RendererAPI = new OpenGLRendererAPI;
+	RendererAPI* RenderCommand::s_RendererAPI = new OpenGLRendererAPI;//指定使用哪一个API
 
 }

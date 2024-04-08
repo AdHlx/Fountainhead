@@ -12,6 +12,8 @@
 #include "Fountainhead/Renderer/Buffer.h"
 #include "Fountainhead/Renderer/VertexArray.h"
 
+#include "Fountainhead/Renderer/OrthographicCamera.h"
+
 namespace Fountainhead {
 	class FOUNTAINHEAD_API Application
 	{
@@ -42,6 +44,8 @@ namespace Fountainhead {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
