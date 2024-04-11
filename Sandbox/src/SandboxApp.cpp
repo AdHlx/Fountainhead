@@ -92,7 +92,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Fountainhead::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Fountainhead::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -126,15 +126,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Fountainhead::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Fountainhead::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Fountainhead::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Fountainhead::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Fountainhead::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Fountainhead::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Fountainhead::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Fountainhead::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Fountainhead::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Fountainhead::Timestep ts) override
@@ -181,11 +181,12 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
 
 		m_Texture->Bind();
-		Fountainhead::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Fountainhead::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		m_ChernoLogoTexture->Bind();
-		Fountainhead::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Fountainhead::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		//Èý½ÇÐÎ
 		//Fountainhead::Renderer::Submit(m_Shader, m_VertexArray);
@@ -214,10 +215,11 @@ public:
 		//}
 	}
 private:
+	Fountainhead::ShaderLibrary m_ShaderLibrary;
 	Fountainhead::Ref<Fountainhead::Shader> m_Shader;
 	Fountainhead::Ref<Fountainhead::VertexArray> m_VertexArray;
 
-	Fountainhead::Ref<Fountainhead::Shader> m_FlatColorShader, m_TextureShader;
+	Fountainhead::Ref<Fountainhead::Shader> m_FlatColorShader;
 	Fountainhead::Ref<Fountainhead::VertexArray> m_SquareVA;
 
 	Fountainhead::Ref<Fountainhead::Texture2D> m_Texture, m_ChernoLogoTexture;
