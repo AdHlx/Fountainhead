@@ -1,7 +1,7 @@
 #include "fhpch.h"
 #include "WindowsInput.h"
 
-#include "Fountainhead/Application.h"
+#include "Fountainhead/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Fountainhead {

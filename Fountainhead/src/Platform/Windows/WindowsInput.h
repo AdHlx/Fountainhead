@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Fountainhead/Input.h"
+#include "Fountainhead/Core/Input.h"
 
 namespace Fountainhead {
 

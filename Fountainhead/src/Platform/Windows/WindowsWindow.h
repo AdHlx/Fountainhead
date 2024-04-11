@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Fountainhead/Window.h"
+#include "Fountainhead/Core/Window.h"
 #include "Fountainhead/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

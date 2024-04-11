@@ -57,17 +57,38 @@
     <ClInclude Include="src\Fountainhead.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Fountainhead\Application.h">
-      <Filter>src\Fountainhead</Filter>
+    <ClInclude Include="src\Fountainhead\Core\Application.h">
+      <Filter>src\Fountainhead\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Fountainhead\Core.h">
-      <Filter>src\Fountainhead</Filter>
+    <ClInclude Include="src\Fountainhead\Core\Core.h">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\EntryPoint.h">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\Input.h">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\KeyCodes.h">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\Layer.h">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\LayerStack.h">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\Log.h">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\MouseButtonCodes.h">
+      <Filter>src\Fountainhead\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Fountainhead\Core\Timestep.h">
       <Filter>src\Fountainhead\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Fountainhead\EntryPoint.h">
-      <Filter>src\Fountainhead</Filter>
+    <ClInclude Include="src\Fountainhead\Core\Window.h">
+      <Filter>src\Fountainhead\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Fountainhead\Events\ApplicationEvent.h">
       <Filter>src\Fountainhead\Events</Filter>
@@ -84,27 +105,6 @@
     <ClInclude Include="src\Fountainhead\ImGui\ImGuiLayer.h">
       <Filter>src\Fountainhead\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Fountainhead\Input.h">
-      <Filter>src\Fountainhead</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fountainhead\KeyCodes.h">
-      <Filter>src\Fountainhead</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fountainhead\Layer.h">
-      <Filter>src\Fountainhead</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fountainhead\LayerStack.h">
-      <Filter>src\Fountainhead</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fountainhead\Log.h">
-      <Filter>src\Fountainhead</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fountainhead\MouseButtonCodes.h">
-      <Filter>src\Fountainhead</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fountainhead\OrthographicCameraController.h">
-      <Filter>src\Fountainhead</Filter>
-    </ClInclude>
     <ClInclude Include="src\Fountainhead\Renderer\Buffer.h">
       <Filter>src\Fountainhead\Renderer</Filter>
     </ClInclude>
@@ -112,6 +112,9 @@
       <Filter>src\Fountainhead\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Fountainhead\Renderer\OrthographicCamera.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\OrthographicCameraController.h">
       <Filter>src\Fountainhead\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Fountainhead\Renderer\RenderCommand.h">
@@ -131,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="src\Fountainhead\Renderer\VertexArray.h">
       <Filter>src\Fountainhead\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fountainhead\Window.h">
-      <Filter>src\Fountainhead</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1253,8 +1253,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Fountainhead\Application.cpp">
-      <Filter>src\Fountainhead</Filter>
+    <ClCompile Include="src\Fountainhead\Core\Application.cpp">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Core\Layer.cpp">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Core\LayerStack.cpp">
+      <Filter>src\Fountainhead\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Core\Log.cpp">
+      <Filter>src\Fountainhead\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Fountainhead\ImGui\ImGuiBuild.cpp">
       <Filter>src\Fountainhead\ImGui</Filter>
@@ -1262,22 +1271,13 @@
     <ClCompile Include="src\Fountainhead\ImGui\ImGuiLayer.cpp">
       <Filter>src\Fountainhead\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Fountainhead\Layer.cpp">
-      <Filter>src\Fountainhead</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fountainhead\LayerStack.cpp">
-      <Filter>src\Fountainhead</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fountainhead\Log.cpp">
-      <Filter>src\Fountainhead</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fountainhead\OrthographicCameraController.cpp">
-      <Filter>src\Fountainhead</Filter>
-    </ClCompile>
     <ClCompile Include="src\Fountainhead\Renderer\Buffer.cpp">
       <Filter>src\Fountainhead\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Fountainhead\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Fountainhead\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Fountainhead\Renderer\RenderCommand.cpp">

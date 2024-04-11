@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Fountainhead/Core.h"
+#include "Fountainhead/Core/Core.h"
 
 namespace Fountainhead {
 

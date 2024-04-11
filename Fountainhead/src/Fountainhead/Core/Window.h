@@ -2,7 +2,7 @@
 
 #include "fhpch.h"
 
-#include "Fountainhead/Core.h"
+#include "Fountainhead/Core/Core.h"
 #include "Fountainhead/Events/Event.h"
 
 namespace Fountainhead {

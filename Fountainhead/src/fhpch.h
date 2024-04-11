@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Fountainhead/Log.h"
+#include "Fountainhead/Core/Log.h"
 
 #ifdef FH_PLATFORM_WINDOWS
 	#include <Windows.h>

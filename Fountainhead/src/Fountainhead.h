@@ -2,15 +2,15 @@
 
 //For use by Fountainhead Application
 
-#include "Fountainhead/Application.h"
-#include "Fountainhead/Layer.h"
+#include "Fountainhead/Core/Application.h"
+#include "Fountainhead/Core/Layer.h"
 
 #include "Fountainhead/Core/Timestep.h"
 
-#include "Fountainhead/Input.h"
-#include "Fountainhead/KeyCodes.h"
-#include "Fountainhead/MouseButtonCodes.h"
-#include "Fountainhead/OrthographicCameraController.h"
+#include "Fountainhead/Core/Input.h"
+#include "Fountainhead/Core/KeyCodes.h"
+#include "Fountainhead/Core/MouseButtonCodes.h"
+#include "Fountainhead/Renderer/OrthographicCameraController.h"
 
 #include "Fountainhead/ImGui/ImGuiLayer.h"
 
@@ -27,5 +27,5 @@
 //---------------------------
 
 //--------EntryPoint---------
-#include "Fountainhead/EntryPoint.h"
+#include "Fountainhead/Core/EntryPoint.h"
 //---------------------------

@@ -1,8 +1,8 @@
 #include "fhpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Fountainhead/Input.h"
-#include "Fountainhead/KeyCodes.h"
+#include "Fountainhead/Core/Input.h"
+#include "Fountainhead/Core/KeyCodes.h"
 
 namespace Fountainhead {
 

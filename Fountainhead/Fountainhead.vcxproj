@@ -144,32 +144,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Fountainhead.h" />
-    <ClInclude Include="src\Fountainhead\Application.h" />
-    <ClInclude Include="src\Fountainhead\Core.h" />
+    <ClInclude Include="src\Fountainhead\Core\Application.h" />
+    <ClInclude Include="src\Fountainhead\Core\Core.h" />
+    <ClInclude Include="src\Fountainhead\Core\EntryPoint.h" />
+    <ClInclude Include="src\Fountainhead\Core\Input.h" />
+    <ClInclude Include="src\Fountainhead\Core\KeyCodes.h" />
+    <ClInclude Include="src\Fountainhead\Core\Layer.h" />
+    <ClInclude Include="src\Fountainhead\Core\LayerStack.h" />
+    <ClInclude Include="src\Fountainhead\Core\Log.h" />
+    <ClInclude Include="src\Fountainhead\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Fountainhead\Core\Timestep.h" />
-    <ClInclude Include="src\Fountainhead\EntryPoint.h" />
+    <ClInclude Include="src\Fountainhead\Core\Window.h" />
     <ClInclude Include="src\Fountainhead\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Fountainhead\Events\Event.h" />
     <ClInclude Include="src\Fountainhead\Events\KeyEvent.h" />
     <ClInclude Include="src\Fountainhead\Events\MouseEvent.h" />
     <ClInclude Include="src\Fountainhead\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Fountainhead\Input.h" />
-    <ClInclude Include="src\Fountainhead\KeyCodes.h" />
-    <ClInclude Include="src\Fountainhead\Layer.h" />
-    <ClInclude Include="src\Fountainhead\LayerStack.h" />
-    <ClInclude Include="src\Fountainhead\Log.h" />
-    <ClInclude Include="src\Fountainhead\MouseButtonCodes.h" />
-    <ClInclude Include="src\Fountainhead\OrthographicCameraController.h" />
     <ClInclude Include="src\Fountainhead\Renderer\Buffer.h" />
     <ClInclude Include="src\Fountainhead\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Fountainhead\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Fountainhead\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Fountainhead\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Fountainhead\Renderer\Renderer.h" />
     <ClInclude Include="src\Fountainhead\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Fountainhead\Renderer\Shader.h" />
     <ClInclude Include="src\Fountainhead\Renderer\Texture.h" />
     <ClInclude Include="src\Fountainhead\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Fountainhead\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -544,15 +544,15 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Fountainhead\Application.cpp" />
+    <ClCompile Include="src\Fountainhead\Core\Application.cpp" />
+    <ClCompile Include="src\Fountainhead\Core\Layer.cpp" />
+    <ClCompile Include="src\Fountainhead\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Fountainhead\Core\Log.cpp" />
     <ClCompile Include="src\Fountainhead\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Fountainhead\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Fountainhead\Layer.cpp" />
-    <ClCompile Include="src\Fountainhead\LayerStack.cpp" />
-    <ClCompile Include="src\Fountainhead\Log.cpp" />
-    <ClCompile Include="src\Fountainhead\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Fountainhead\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\RendererAPI.cpp" />
