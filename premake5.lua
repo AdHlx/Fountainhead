@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "Fountainhead/vendor/GLFW/include"
 IncludeDir["Glad"] = "Fountainhead/vendor/Glad/include"
 IncludeDir["ImGui"] = "Fountainhead/vendor/imgui"
 IncludeDir["glm"] = "Fountainhead/vendor/glm"
+IncludeDir["stb_image"] = "Fountainhead/vendor/stb_image"
 
 include "Fountainhead/vendor/GLFW"
 include "Fountainhead/vendor/Glad"
@@ -40,6 +41,8 @@ project "Fountainhead"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -56,7 +59,8 @@ project "Fountainhead"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links

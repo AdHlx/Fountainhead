@@ -21,7 +21,7 @@ public:
 			0.0f, 0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<Fountainhead::VertexBuffer> vertexBuffer;
+		Fountainhead::Ref<Fountainhead::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Fountainhead::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Fountainhead::BufferLayout layout = {
 			{ Fountainhead::ShaderDataType::Float3, "a_Position" },
@@ -31,28 +31,29 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Fountainhead::IndexBuffer> indexBuffer;
+		Fountainhead::Ref<Fountainhead::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Fountainhead::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA.reset(Fountainhead::VertexArray::Create());
 
-		float squareVertices[3 * 4] = {
-				-0.5f, -0.5f, 0.0f,
-				 0.5f, -0.5f, 0.0f,
-				 0.5f,  0.5f, 0.0f,
-				-0.5f,  0.5f, 0.0f
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		std::shared_ptr<Fountainhead::VertexBuffer> squareVB;
+		Fountainhead::Ref<Fountainhead::VertexBuffer> squareVB;
 		squareVB.reset(Fountainhead::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
-			{ Fountainhead::ShaderDataType::Float3, "a_Position" }
+			{ Fountainhead::ShaderDataType::Float3, "a_Position" },
+			{ Fountainhead::ShaderDataType::Float2, "a_TexCoord" }
 		});
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Fountainhead::IndexBuffer> squareIB;
+		Fountainhead::Ref<Fountainhead::IndexBuffer> squareIB;
 		squareIB.reset(Fountainhead::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -126,6 +127,41 @@ public:
 		)";
 
 		m_FlatColorShader.reset(Fountainhead::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+		std::string textureShaderVertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+			out vec2 v_TexCoord;
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
+			}
+		)";
+
+		std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+			in vec2 v_TexCoord;
+			
+			uniform sampler2D u_Texture;
+			void main()
+			{
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		m_TextureShader.reset(Fountainhead::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+
+		m_Texture = Fountainhead::Texture2D::Create("assets/textures/Checkerboard.png");
+
+		std::dynamic_pointer_cast<Fountainhead::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<Fountainhead::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Fountainhead::Timestep ts) override
@@ -173,7 +209,11 @@ public:
 		}
 
 
-		Fountainhead::Renderer::Submit(m_Shader, m_VertexArray);
+		m_Texture->Bind();
+		Fountainhead::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		//Èý½ÇÐÎ
+		//Fountainhead::Renderer::Submit(m_Shader, m_VertexArray);
 
 		Fountainhead::Renderer::EndScene();
 	}
@@ -199,11 +239,13 @@ public:
 		//}
 	}
 private:
-	std::shared_ptr<Fountainhead::Shader> m_Shader;
-	std::shared_ptr<Fountainhead::VertexArray> m_VertexArray;
+	Fountainhead::Ref<Fountainhead::Shader> m_Shader;
+	Fountainhead::Ref<Fountainhead::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Fountainhead::Shader> m_FlatColorShader;
-	std::shared_ptr<Fountainhead::VertexArray> m_SquareVA;
+	Fountainhead::Ref<Fountainhead::Shader> m_FlatColorShader, m_TextureShader;
+	Fountainhead::Ref<Fountainhead::VertexArray> m_SquareVA;
+
+	Fountainhead::Ref<Fountainhead::Texture2D> m_Texture;
 
 	Fountainhead::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

@@ -19,6 +19,7 @@
 
 #include "Fountainhead/Renderer/Buffer.h"
 #include "Fountainhead/Renderer/Shader.h"
+#include "Fountainhead/Renderer/Texture.h"
 #include "Fountainhead/Renderer/VertexArray.h"
 
 #include "Fountainhead/Renderer/OrthographicCamera.h"

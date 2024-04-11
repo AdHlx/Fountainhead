@@ -7,14 +7,23 @@
     <Filter Include="src\Fountainhead">
       <UniqueIdentifier>{B2DB62BD-9ED4-810F-C706-6794B35E611B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Fountainhead\Core">
+      <UniqueIdentifier>{4A1F13E7-B68B-CEE1-7F7F-663FEBAAF049}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Fountainhead\Events">
       <UniqueIdentifier>{562B7AFD-C262-C294-CB6C-26B83723E98D}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Fountainhead\ImGui">
       <UniqueIdentifier>{5CCEE1C9-48C8-0A1C-3135-A12C1DCE7088}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Fountainhead\Renderer">
+      <UniqueIdentifier>{9867AD3B-042A-E1C5-4DDA-6F52B9DBB9A3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
@@ -40,6 +49,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Fountainhead.h">
@@ -50,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="src\Fountainhead\Core.h">
       <Filter>src\Fountainhead</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Core\Timestep.h">
+      <Filter>src\Fountainhead\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Fountainhead\EntryPoint.h">
       <Filter>src\Fountainhead</Filter>
@@ -87,8 +102,53 @@
     <ClInclude Include="src\Fountainhead\MouseButtonCodes.h">
       <Filter>src\Fountainhead</Filter>
     </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\Buffer.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\GraphicsContext.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\OrthographicCamera.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\RenderCommand.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\Renderer.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\RendererAPI.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\Shader.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\Texture.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fountainhead\Renderer\VertexArray.h">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Fountainhead\Window.h">
       <Filter>src\Fountainhead</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1185,20 +1245,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Fountainhead\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Fountainhead\Renderer\Shader.h" />
-    <ClInclude Include="src\Fountainhead\Renderer\Buffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\Fountainhead\Renderer\Renderer.h" />
-    <ClInclude Include="src\Fountainhead\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Fountainhead\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\Fountainhead\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Fountainhead\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Fountainhead\Core\Timestep.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Fountainhead\Application.cpp">
@@ -1219,6 +1268,48 @@
     <ClCompile Include="src\Fountainhead\Log.cpp">
       <Filter>src\Fountainhead</Filter>
     </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\Buffer.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\RenderCommand.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\Renderer.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\RendererAPI.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\Shader.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\Texture.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\Renderer\VertexArray.cpp">
+      <Filter>src\Fountainhead\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1228,17 +1319,8 @@
     <ClCompile Include="src\fhpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Fountainhead\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Fountainhead\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\Fountainhead\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Fountainhead\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\Fountainhead\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\Fountainhead\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Fountainhead\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
