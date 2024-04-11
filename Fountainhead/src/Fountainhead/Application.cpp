@@ -23,6 +23,8 @@ namespace Fountainhead {
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 		//用std::bind绑定一个成员函数，用宏简化
 
+		Renderer::Init();
+
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 	}
