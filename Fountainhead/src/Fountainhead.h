@@ -25,7 +25,3 @@
 
 #include "Fountainhead/Renderer/OrthographicCamera.h"
 //---------------------------
-
-//--------EntryPoint---------
-#include "Fountainhead/Core/EntryPoint.h"
-//---------------------------
