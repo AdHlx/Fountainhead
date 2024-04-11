@@ -16,6 +16,7 @@
 
 //--------Renderer----------
 #include "Fountainhead/Renderer/Renderer.h"
+#include "Fountainhead/Renderer/Renderer2D.h"
 #include "Fountainhead/Renderer/RenderCommand.h"
 
 #include "Fountainhead/Renderer/Buffer.h"
