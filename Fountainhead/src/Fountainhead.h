@@ -10,6 +10,7 @@
 #include "Fountainhead/Input.h"
 #include "Fountainhead/KeyCodes.h"
 #include "Fountainhead/MouseButtonCodes.h"
+#include "Fountainhead/OrthographicCameraController.h"
 
 #include "Fountainhead/ImGui/ImGuiLayer.h"
 
