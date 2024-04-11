@@ -102,6 +102,9 @@
     <ClInclude Include="src\Fountainhead\MouseButtonCodes.h">
       <Filter>src\Fountainhead</Filter>
     </ClInclude>
+    <ClInclude Include="src\Fountainhead\OrthographicCameraController.h">
+      <Filter>src\Fountainhead</Filter>
+    </ClInclude>
     <ClInclude Include="src\Fountainhead\Renderer\Buffer.h">
       <Filter>src\Fountainhead\Renderer</Filter>
     </ClInclude>
@@ -1266,6 +1269,9 @@
       <Filter>src\Fountainhead</Filter>
     </ClCompile>
     <ClCompile Include="src\Fountainhead\Log.cpp">
+      <Filter>src\Fountainhead</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fountainhead\OrthographicCameraController.cpp">
       <Filter>src\Fountainhead</Filter>
     </ClCompile>
     <ClCompile Include="src\Fountainhead\Renderer\Buffer.cpp">
