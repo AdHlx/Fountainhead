@@ -21,5 +21,7 @@ private:
 	Fountainhead::Ref<Fountainhead::VertexArray> m_SquareVA;
 	Fountainhead::Ref<Fountainhead::Shader> m_FlatColorShader;
 
+	Fountainhead::Ref<Fountainhead::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };
