@@ -1,5 +1,5 @@
 #include "fhpch.h"
-#include "WindowsWindow.h"
+#include "Platform/Windows/WindowsWindow.h"
 
 #include "Fountainhead/Events/ApplicationEvent.h"
 #include "Fountainhead/Events/MouseEvent.h"
@@ -9,7 +9,7 @@
 
 namespace Fountainhead {
 
-	static bool s_GLFWInitialized = false;
+	static uint8_t s_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)//这个错误函数需要做的就是记下日志
 	{
@@ -17,9 +17,9 @@ namespace Fountainhead {
 	}
 
 	//创建窗口时，调用构造函数，构造函数调用Init()，根据属性设置所有数据
-	Window* Window::Create(const WindowProps& props)//Create函数的实现
+	Scope<Window> Window::Create(const WindowProps& props)//Create函数的实现
 	{
-		return new WindowsWindow(props);
+		return CreateScope<WindowsWindow>(props);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
@@ -40,18 +40,17 @@ namespace Fountainhead {
 
 		FH_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
-		if (!s_GLFWInitialized)
+		if (s_GLFWWindowCount == 0)
 		{
-			//TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
 			FH_CORE_ASSERT(success, "Could not intialize GLFW!");//使用断言检查是否出现问题
 			glfwSetErrorCallback(GLFWErrorCallback);//添加错误回调函数
-			s_GLFWInitialized = true;
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);//创建glfw窗口
+		++s_GLFWWindowCount;
 		
-		m_Context = new OpenGLContext(m_Window);
+		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);//设置一个窗口用户指针，用于事件回调
@@ -151,6 +150,12 @@ namespace Fountainhead {
 	void WindowsWindow::Shutdown()//销毁窗口
 	{
 		glfwDestroyWindow(m_Window);
+		--s_GLFWWindowCount;
+
+		if (s_GLFWWindowCount == 0)
+		{
+			glfwTerminate();
+		}
 	}
 
 	void WindowsWindow::OnUpdate()

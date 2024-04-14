@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Event.h"
+#include "Fountainhead/Events/Event.h"
 
 namespace Fountainhead {
-	class FOUNTAINHEAD_API WindowResizeEvent : public Event//窗口调整大小事件
+	class WindowResizeEvent : public Event//窗口调整大小事件
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
@@ -25,37 +25,37 @@ namespace Fountainhead {
 		unsigned int m_Width, m_Height;
 	};
 
-	class FOUNTAINHEAD_API WindowCloseEvent : public Event//窗口关闭事件
+	class WindowCloseEvent : public Event//窗口关闭事件
 	{
 	public:
-		WindowCloseEvent() {}
+		WindowCloseEvent() = default;
 
 		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class FOUNTAINHEAD_API AppTickEvent : public Event//帧事件
+	class AppTickEvent : public Event//帧事件
 	{
 	public:
-		AppTickEvent() {}
+		AppTickEvent() = default;
 
 		EVENT_CLASS_TYPE(AppTick)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class FOUNTAINHEAD_API AppUpdateEvent : public Event//更新事件
+	class AppUpdateEvent : public Event//更新事件
 	{
 	public:
-		AppUpdateEvent() {}
+		AppUpdateEvent() = default;
 
 		EVENT_CLASS_TYPE(AppUpdate)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class FOUNTAINHEAD_API AppRenderEvent : public Event//渲染事件
+	class AppRenderEvent : public Event//渲染事件
 	{
 	public:
-		AppRenderEvent() {}
+		AppRenderEvent() = default;
 
 		EVENT_CLASS_TYPE(AppRender)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)

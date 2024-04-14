@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "Fountainhead/Core/Core.h"
 
-#include "Window.h"
+#include "Fountainhead/Core/Window.h"
 #include "Fountainhead/Core/LayerStack.h"
 #include "Fountainhead/Events/ApplicationEvent.h"
 
@@ -28,7 +28,7 @@ namespace Fountainhead {
 
 		inline static Application& Get() { return *s_Instance; }
 	private:
-		bool OnWindowClosed(WindowCloseEvent& e);
+		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
 		std::unique_ptr<Window> m_Window;//保存窗口类的一个实例

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Fountainhead/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Fountainhead/Renderer/Texture.h"
 
 namespace Fountainhead {
 

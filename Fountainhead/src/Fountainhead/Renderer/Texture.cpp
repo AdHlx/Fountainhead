@@ -1,7 +1,7 @@
 #include "fhpch.h"
-#include "Texture.h"
+#include "Fountainhead/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Fountainhead/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Fountainhead {

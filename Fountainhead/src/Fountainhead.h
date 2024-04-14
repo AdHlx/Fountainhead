@@ -2,6 +2,8 @@
 
 //For use by Fountainhead Application
 
+#include "Fountainhead/Core/Core.h"
+
 #include "Fountainhead/Core/Application.h"
 #include "Fountainhead/Core/Layer.h"
 

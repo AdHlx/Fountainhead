@@ -1,10 +1,8 @@
 #include "fhpch.h"
-#include "RenderCommand.h"
-
-#include "Platform/OpenGL/OpenGLRendererAPI.h"
+#include "Fountainhead/Renderer/RenderCommand.h"
 
 namespace Fountainhead {
 
-	RendererAPI* RenderCommand::s_RendererAPI = new OpenGLRendererAPI;//指定使用哪一个API
+	Scope<RendererAPI> RenderCommand::s_RendererAPI = RendererAPI::Create();//指定使用哪一个API
 
 }

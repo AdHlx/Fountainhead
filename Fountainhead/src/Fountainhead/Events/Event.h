@@ -1,5 +1,7 @@
 #pragma once
 
+#include "fhpch.h"
+
 #include "Fountainhead/Core/Core.h"
 
 namespace Fountainhead {
@@ -43,9 +45,8 @@ namespace Fountainhead {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class FOUNTAINHEAD_API Event
+	class Event
 	{
-		friend class EventDispatcher;
 	public:
 		bool Handled = false;//是否已被处理的布尔值，因为我们希望能够在对应的层处理对应的实践，不希望将事件传播到更深的层
 
@@ -62,8 +63,6 @@ namespace Fountainhead {
 
 	class EventDispatcher//事件调度器，是一种能让我们非常轻松的根据事件类型调度事件的方式
 	{
-		template<typename T>
-		using EventFn = std::function<bool(T&)>;//返回布尔类型，接受T&类型
 	public:
 		//如果我们收到一个事件，并且函数被调用了，我们会收到一个Event引用，也就是说它可以是任何类型的事件，不需要知道是什么
 		//我们可以使用接收到的事件，创建一个调度器实例，然后使用一个不同的事件函数，调用下面的Dispatch函数
@@ -72,8 +71,8 @@ namespace Fountainhead {
 		{
 		}
 		
-		template<typename T>
-		bool Dispatch(EventFn<T> func)//检测当前要调度的事件的类型，检测是否匹配这个模板参数
+		template<typename T, typename F>
+		bool Dispatch(const F& func)//检测当前要调度的事件的类型，检测是否匹配这个模板参数
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())//由于这是一个静态函数，我们使用T::来获取静态类型
 			{//如果尝试调度的事件，与这个函数匹配，它就会用这个事件调用这个函数

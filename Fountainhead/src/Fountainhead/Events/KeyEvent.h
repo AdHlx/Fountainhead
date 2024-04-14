@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Event.h"
+#include "Fountainhead/Events/Event.h"
 
 namespace Fountainhead {
-	class FOUNTAINHEAD_API KeyEvent : public Event//创建基类，包含按键码用来区分不同按键事件
+	class KeyEvent : public Event//创建基类，包含按键码用来区分不同按键事件
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -16,7 +16,7 @@ namespace Fountainhead {
 		int m_KeyCode;
 	};
 
-	class FOUNTAINHEAD_API KeyPressedEvent : public KeyEvent//按键按下事件
+	class KeyPressedEvent : public KeyEvent//按键按下事件
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
@@ -36,7 +36,7 @@ namespace Fountainhead {
 		int m_RepeatCount;
 	};
 
-	class FOUNTAINHEAD_API KeyReleasedEvent : public KeyEvent//按键弹起事件，除了和按下事件在重复计数外其他都相同
+	class  KeyReleasedEvent : public KeyEvent//按键弹起事件，除了和按下事件在重复计数外其他都相同
 	{
 	public:
 		KeyReleasedEvent(int keycode)
@@ -52,7 +52,7 @@ namespace Fountainhead {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class FOUNTAINHEAD_API KeyTypedEvent : public KeyEvent//按键按下事件
+	class KeyTypedEvent : public KeyEvent//按键按下事件
 	{
 	public:
 		KeyTypedEvent(int keycode)

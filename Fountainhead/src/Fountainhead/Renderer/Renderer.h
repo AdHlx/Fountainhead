@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RenderCommand.h"
+#include "Fountainhead/Renderer/RenderCommand.h"
 
-#include "OrthographicCamera.h"
-#include "Shader.h"
+#include "Fountainhead/Renderer/OrthographicCamera.h"
+#include "Fountainhead/Renderer/Shader.h"
 
 namespace Fountainhead {
 
@@ -11,6 +11,8 @@ namespace Fountainhead {
 	{
 	public:
 		static void Init();
+		static void Shutdown();
+
 		static void OnWindowResize(uint32_t width, uint32_t height);
 
 		static void BeginScene(OrthographicCamera& camera);

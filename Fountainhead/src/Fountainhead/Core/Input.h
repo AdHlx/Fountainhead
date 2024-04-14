@@ -4,7 +4,7 @@
 
 namespace Fountainhead {
 
-	class FOUNTAINHEAD_API Input
+	class Input
 	{
 	//public静态成员函数提供一个接口，以访问protected纯虚函数，具体实现将由派生类override
 	public:

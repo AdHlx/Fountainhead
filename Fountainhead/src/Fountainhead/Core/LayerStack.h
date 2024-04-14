@@ -1,16 +1,16 @@
 #pragma once
 
 #include "Fountainhead/Core/Core.h"
-#include "Layer.h"
+#include "Fountainhead/Core/Layer.h"
 
 #include <vector>
 
 namespace Fountainhead {
 	//基本上是一个Layer向量的封装器
-	class FOUNTAINHEAD_API LayerStack
+	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

@@ -552,6 +552,7 @@
     <ClCompile Include="src\Fountainhead\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Fountainhead\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Fountainhead\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Fountainhead\Renderer\RenderCommand.cpp" />

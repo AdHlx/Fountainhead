@@ -22,7 +22,7 @@ namespace Fountainhead {
 	};
 
 	//Interface representing a desktop system based Window
-	class FOUNTAINHEAD_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;//一个以事件为参数，返回void的函数
@@ -43,6 +43,6 @@ namespace Fountainhead {
 
 		virtual void* GetNativeWindow() const = 0;//使用void*可以不必须是GLFWwindow，如果我们使用其他的窗口库，也可以
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

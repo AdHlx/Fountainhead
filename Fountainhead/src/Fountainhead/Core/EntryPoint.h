@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Fountainhead/Core/Core.h"
+
 #ifdef FH_PLATFORM_WINDOWS
 
 extern Fountainhead::Application* Fountainhead::CreateApplication();

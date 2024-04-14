@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RendererAPI.h"
+#include "Fountainhead/Renderer/RendererAPI.h"
 
 //实际的原始渲染指令，在Renderer.h调用接口
 namespace Fountainhead {
@@ -33,7 +33,7 @@ namespace Fountainhead {
 			s_RendererAPI->DrawIndexed(vertexArray);
 		}
 	private:
-		static RendererAPI* s_RendererAPI;
+		static Scope<RendererAPI> s_RendererAPI;
 	};
 
 }

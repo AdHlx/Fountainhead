@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Event.h"
+#include "Fountainhead/Events/Event.h"
 
 namespace Fountainhead {
-	class FOUNTAINHEAD_API MouseMovedEvent : public Event//鼠标移动事件
+	class MouseMovedEvent : public Event//鼠标移动事件
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -25,7 +25,7 @@ namespace Fountainhead {
 		float m_MouseX, m_MouseY;
 	};
 
-	class FOUNTAINHEAD_API MouseScrolledEvent : public Event//鼠标滚轮滚动事件
+	class MouseScrolledEvent : public Event//鼠标滚轮滚动事件
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
@@ -47,7 +47,7 @@ namespace Fountainhead {
 		float m_XOffset, m_YOffset;
 	};
 
-	class FOUNTAINHEAD_API MouseButtonEvent : public Event//鼠标按键事件
+	class MouseButtonEvent : public Event//鼠标按键事件
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -60,7 +60,7 @@ namespace Fountainhead {
 		int m_Button;//存储了是那个按键
 	};
 
-	class FOUNTAINHEAD_API MouseButtonPressedEvent : public MouseButtonEvent//鼠标按下事件
+	class MouseButtonPressedEvent : public MouseButtonEvent//鼠标按下事件
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -76,7 +76,7 @@ namespace Fountainhead {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class FOUNTAINHEAD_API MouseButtonReleasedEvent : public MouseButtonEvent//鼠标弹起事件
+	class MouseButtonReleasedEvent : public MouseButtonEvent//鼠标弹起事件
 	{
 	public:
 		MouseButtonReleasedEvent(int button)
