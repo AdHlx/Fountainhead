@@ -12,6 +12,8 @@ namespace Fountainhead {
 	}
 	void OpenGLContext::Init()
 	{
+		FH_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);//创建当前上下文
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		FH_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -23,6 +25,8 @@ namespace Fountainhead {
 	}
 	void OpenGLContext::SwapBuffers()
 	{
+		FH_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);//交换缓冲区
 	}
 }

@@ -8,6 +8,8 @@ namespace Fountainhead {
 
 	void Renderer::Init()
 	{
+		FH_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}

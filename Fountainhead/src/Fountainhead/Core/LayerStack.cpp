@@ -18,13 +18,11 @@ namespace Fountainhead {
 	{
 		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);//层被推入列表前半部分
 		m_LayerInsertIndex++;
-		layer->OnAttach();
 	}
 
 	void LayerStack::PushOverlay(Layer* overlay)
 	{
 		m_Layers.emplace_back(overlay);//覆层被推入列表后半部分
-		overlay->OnAttach();
 	}
 	//弹出层时不会被释放，只有销毁层时才会，层栈的所有权是应用程序(Application)，这意味着可以分配层，只要把层传给层栈并且不弹出层，层就会在程序关闭时释放
 	void LayerStack::PopLayer(Layer* layer)

@@ -15,6 +15,8 @@
 
 #include "Fountainhead/Core/Log.h"
 
+#include "Fountainhead/Debug/Instrumentor.h"
+
 #ifdef FH_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif // FH_PLATFORM_WINDOWS

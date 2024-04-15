@@ -15,6 +15,8 @@ namespace Fountainhead {
 
 	Application::Application()
 	{
+		FH_PROFILE_FUNCTION();
+
 		FH_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
@@ -31,21 +33,31 @@ namespace Fountainhead {
 
 	Application::~Application()
 	{
+		FH_PROFILE_FUNCTION();
+
 		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)//一个适配器，本质上就是把层或者覆层推入层栈
 	{
+		FH_PROFILE_FUNCTION();
+
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
+		FH_PROFILE_FUNCTION();
+
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
 	{
+		FH_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(FH_BIND_EVENT_FN(Application::OnWindowClose));//如果是关闭操作，就调度到OnWindowClosed这个函数
 		dispatcher.Dispatch<WindowResizeEvent>(FH_BIND_EVENT_FN(Application::OnWindowResize));
@@ -60,22 +72,35 @@ namespace Fountainhead {
 
 	void Application::Run()
 	{
+		FH_PROFILE_FUNCTION();
+
 		while (m_Running)//层更新与imgui更新
 		{
+			FH_PROFILE_FUNCTION();
+
 			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
 			if (!m_Minimized)
 			{
-				for (Layer* layer : m_LayerStack)
-					layer->OnUpdate(timestep);
+				{
+					FH_PROFILE_SCOPE("LayerStack OnUpdate");
+
+					for (Layer* layer : m_LayerStack)
+						layer->OnUpdate(timestep);
+				}
+
+				m_ImGuiLayer->Begin();
+				{
+					FH_PROFILE_SCOPE("LayerStack OnImGuiRender");
+
+					for (Layer* layer : m_LayerStack)
+						layer->OnImGuiRender();
+				}
+				m_ImGuiLayer->End();
 			}
 
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
-			m_ImGuiLayer->End();
 			m_Window->OnUpdate();
 		}
 	}
@@ -88,6 +113,8 @@ namespace Fountainhead {
 
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		FH_PROFILE_FUNCTION();
+
 		if (e.GetWidth() == 0 || e.GetHeight() == 0)
 		{
 			m_Minimized = true;

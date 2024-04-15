@@ -24,16 +24,22 @@ namespace Fountainhead {
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		FH_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		FH_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)//初始化glfw并创建我们的窗口
 	{
+		FH_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -42,13 +48,17 @@ namespace Fountainhead {
 
 		if (s_GLFWWindowCount == 0)
 		{
+			FH_PROFILE_FUNCTION();
 			int success = glfwInit();
 			FH_CORE_ASSERT(success, "Could not intialize GLFW!");//使用断言检查是否出现问题
 			glfwSetErrorCallback(GLFWErrorCallback);//添加错误回调函数
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);//创建glfw窗口
-		++s_GLFWWindowCount;
+		{
+			FH_PROFILE_SCOPE("glfwCreateWindow");
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);//创建glfw窗口
+			++s_GLFWWindowCount;
+		}
 		
 		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
@@ -149,6 +159,8 @@ namespace Fountainhead {
 
 	void WindowsWindow::Shutdown()//销毁窗口
 	{
+		FH_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
 		--s_GLFWWindowCount;
 
@@ -160,12 +172,16 @@ namespace Fountainhead {
 
 	void WindowsWindow::OnUpdate()
 	{
+		FH_PROFILE_FUNCTION();
+
 		glfwPollEvents();//拉取事件
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)//垂直同步设置函数
 	{
+		FH_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);//这里可以设置n，n就是n次同步，相当于1/n显示器帧率
 		else

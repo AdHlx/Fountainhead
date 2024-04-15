@@ -23,6 +23,8 @@ namespace Fountainhead {
 
     void ImGuiLayer::OnAttach()
     {
+        FH_PROFILE_FUNCTION();
+
         //设置ImGui上下文
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
@@ -56,6 +58,8 @@ namespace Fountainhead {
 
     void ImGuiLayer::OnDetach()
     {
+        FH_PROFILE_FUNCTION();
+
         //销毁上下文
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();
@@ -64,6 +68,8 @@ namespace Fountainhead {
 
     void ImGuiLayer::Begin()
     {
+        FH_PROFILE_FUNCTION();
+
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
@@ -71,6 +77,8 @@ namespace Fountainhead {
 
     void ImGuiLayer::End()
     {
+        FH_PROFILE_FUNCTION();
+
         ImGuiIO& io = ImGui::GetIO();
         Application& app = Application::Get();
         io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
