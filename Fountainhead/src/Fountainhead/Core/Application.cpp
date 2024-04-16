@@ -62,9 +62,9 @@ namespace Fountainhead {
 		dispatcher.Dispatch<WindowCloseEvent>(FH_BIND_EVENT_FN(Application::OnWindowClose));//如果是关闭操作，就调度到OnWindowClosed这个函数
 		dispatcher.Dispatch<WindowResizeEvent>(FH_BIND_EVENT_FN(Application::OnWindowResize));
 
-		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)//反向遍历
+		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)//反向遍历
 		{
-			(*--it)->OnEvent(e);
+			(*it)->OnEvent(e);
 			if (e.Handled)
 				break;
 		}
