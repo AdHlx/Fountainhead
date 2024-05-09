@@ -32,7 +32,7 @@ namespace Fountainhead {
 
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
-								virtual const char* GetName() const override { return #type; }
+								virtual const char* GetName() const override { return #type; }// 用于简化事件类中的静态和虚函数的定义，关联特定的事件类型。
 
 //static EventType GetStaticType() { return EventType::KeyPressed; }
 //我们希望运行时检查是哪一种事件类型，所以我们需要一个返回事件类型的函数，我们不必有实例来查看事件类型
@@ -43,7 +43,7 @@ namespace Fountainhead {
 //以上三个函数都可以通过一个EVENT_CLASS_TYPE宏来简单实现
 //下方的EVENT_CLASS_CATEGORY也是一样的道理
 
-#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
+#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }// 用于设置事件的分类标志。
 
 	class Event
 	{

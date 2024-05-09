@@ -12,7 +12,7 @@
 namespace Fountainhead {
 
 	Application* Application::s_Instance = nullptr;
-
+	//初始化应用程序实例，确保只有一个应用实例 (s_Instance), 并设置窗口事件回调。初始化渲染器和 ImGui 层。
 	Application::Application()
 	{
 		FH_PROFILE_FUNCTION();
@@ -30,7 +30,7 @@ namespace Fountainhead {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 	}
-
+	// 清理渲染器资源，保证应用退出时资源得到正确释放。
 	Application::~Application()
 	{
 		FH_PROFILE_FUNCTION();
@@ -53,7 +53,7 @@ namespace Fountainhead {
 		m_LayerStack.PushOverlay(overlay);
 		overlay->OnAttach();
 	}
-
+	// 分发事件到相应的处理函数，如果是窗口关闭或调整大小事件，特别处理以更新应用状态。遍历层堆栈，传递事件到每一个层，直到事件被处理。
 	void Application::OnEvent(Event& e)
 	{
 		FH_PROFILE_FUNCTION();
@@ -69,7 +69,7 @@ namespace Fountainhead {
 				break;
 		}
 	}
-
+	// 维持应用的主循环，包括更新层的状态、处理 GUI 渲染，并更新窗口状态。使用 Timestep 计算帧间隔，支持时间依赖的更新逻辑。
 	void Application::Run()
 	{
 		FH_PROFILE_FUNCTION();

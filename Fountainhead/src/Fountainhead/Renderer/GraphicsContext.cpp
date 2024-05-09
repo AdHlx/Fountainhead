@@ -5,7 +5,7 @@
 #include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Fountainhead {
-
+	// 基于当前配置的渲染API，创建一个具体的图形上下文对象。
 	Scope<GraphicsContext> GraphicsContext::Create(void* window)
 	{
 		switch (Renderer::GetAPI())

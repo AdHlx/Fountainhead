@@ -6,7 +6,7 @@ namespace Fountainhead {
 	class KeyEvent : public Event//创建基类，包含按键码用来区分不同按键事件
 	{
 	public:
-		inline int GetKeyCode() const { return m_KeyCode; }
+		inline int GetKeyCode() const { return m_KeyCode; }// 获取触发事件的键的键码。
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)//在基类KeyEvent中实现了这个，因为按键按下和弹起的事件都是这个，没必要在他们自己的类中实现
 	protected:

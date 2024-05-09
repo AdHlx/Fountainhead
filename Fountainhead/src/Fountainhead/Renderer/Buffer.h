@@ -1,12 +1,12 @@
 #pragma once
 //纯接口，不包含任何数据
 namespace Fountainhead {
-
+	// 枚举定义着色器中可能使用的数据类型，包括各种向量和矩阵类型。
 	enum class ShaderDataType
 	{
 		None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
 	};
-
+	// 根据数据类型返回相应的大小（以字节为单位），这对于缓冲区管理非常关键。
 	static uint32_t ShaderDataTypeSize(ShaderDataType type)
 	{
 		switch (type)
@@ -27,7 +27,7 @@ namespace Fountainhead {
 		FH_CORE_ASSERT(false, "Unknown ShaderDataType!");
 		return 0;
 	}
-
+	// 定义缓冲区中的一个元素（如顶点属性），包括名称、类型、大小、偏移和是否规范化。
 	struct BufferElement
 	{
 		std::string Name;
@@ -64,7 +64,7 @@ namespace Fountainhead {
 			return 0;
 		}
 	};
-
+	// 表示一组 BufferElement，用于描述顶点缓冲区的布局，包括每个元素的偏移和整体步长（stride）的计算。
 	class BufferLayout
 	{
 	public:
@@ -99,7 +99,7 @@ namespace Fountainhead {
 		std::vector<BufferElement> m_Elements;
 		uint32_t m_Stride = 0;
 	};
-
+	// 抽象类定义了顶点缓冲区和索引缓冲区的接口，包括绑定、解绑和布局设置的方法。
 	class VertexBuffer
 	{
 	public:

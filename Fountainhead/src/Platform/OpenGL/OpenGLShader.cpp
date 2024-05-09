@@ -27,7 +27,7 @@ namespace Fountainhead {
 		auto shaderSources = PreProcess(source);
 		Compile(shaderSources);
 
-		// Extract name from filepath
+		// 提取文件名作为着色器名称
 		auto lastSlash = filepath.find_last_of("/\\");
 		lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
 		auto lastDot = filepath.rfind('.');
